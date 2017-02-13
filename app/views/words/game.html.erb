@@ -1,0 +1,20 @@
+<h1>Words game</h1>
+<%@grid.each_slice(4) do |e|%>
+  <div>
+    <h2>
+      <% e.each do |i| %>
+        <%= ' ' + i %>
+      <% end %>
+    </h2>
+  </div>
+<%end%>
+
+<div class="text-center">
+  <form action="/score">
+    <label for="question">Your Aswer</label>
+    <%= hidden_field_tag(:grid, @grid) %>
+    <%= hidden_field_tag(:start_time, @start_time) %>
+    <input type="text" id="question" name="attempt">
+    <input type="submit" value="Go on!">
+  </form>
+</div>
